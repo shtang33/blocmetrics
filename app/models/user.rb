@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
 
   has_many :registered_applications, dependent: :destroy
 
+  def admin?
+    role == 'admin'
+  end
+
 end
