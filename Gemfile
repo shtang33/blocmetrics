@@ -40,6 +40,8 @@ gem 'figaro', '1.0'
 gem 'annotate'
 gem 'faker'
 gem 'pundit'
+gem 'will_paginate', '~> 3.0.5'
+gem 'redcarpet'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

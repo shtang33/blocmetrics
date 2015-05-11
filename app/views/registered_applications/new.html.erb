@@ -1,2 +1,31 @@
-<h1>RegisteredApplications#new</h1>
-<p>Find me in app/views/registered_applications/new.html.erb</p>
+<h1>Register a new application!</h1>
+
+<div class = "row">
+  <div class = "col-md-4">
+    <p>Guidelines for new application:</p>
+      <dl>
+        <dt>Make sure application works</dt>
+        <dd>The tool won't work if your app is broken!</dd>
+        <dt>Appropriate application</dt>
+        <dd>Any member registering an app with virus will immediately be removed from the community</dd>
+      </dl>
+  </div>
+
+  <div class = "col-md-8">
+    <%= form_for @registered_application do |f| %>
+      <div class = "form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter name of the application" %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control', placeholder: "Enter the URL of the application" %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 3, class: 'form-control', placeholder: "Briefly describe the application here" %>
+      </div>
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
