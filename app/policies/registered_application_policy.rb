@@ -1,7 +1,8 @@
 class RegisteredApplicationPolicy < ApplicationPolicy
 
   def index?
-    true
+    # true
+    user.present?
   end
 
   def create?
@@ -17,7 +18,8 @@ class RegisteredApplicationPolicy < ApplicationPolicy
   end
 
   def show?
-    user.present? && (record.user == user || user.admin? || user.moderator?)
+    user.present?
+    # user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 
 

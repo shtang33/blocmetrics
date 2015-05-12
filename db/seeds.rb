@@ -11,6 +11,15 @@ require 'faker'
 end
 users = User.all
 
+admin = User.new(
+  name: 'Admin User',
+  email: 'admin@example.com',
+  password: 'helloworld',
+  role: 'admin'
+  )
+admin.skip_confirmation!
+admin.save!
+
 20.times do
   RegisteredApplication.create!(
     user: users.sample,
@@ -20,15 +29,6 @@ users = User.all
     )
 end
 
-
-admin = User.new(
-  name: 'Admin User',
-  email: 'admin@example.com',
-  password: 'helloworld',
-  role: 'admin'
-  )
-admin.skip_confirmation!
-admin.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"

@@ -14,5 +14,5 @@
 class RegisteredApplication < ActiveRecord::Base
   belongs_to :user
 
-  scope :visible_to, -> (user){user ? all : where(user: user) }
-end
+  scope :visible_to, -> (user){user.admin? ? all : where(user: user) }
+end 

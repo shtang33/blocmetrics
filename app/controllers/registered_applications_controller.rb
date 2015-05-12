@@ -1,9 +1,8 @@
 class RegisteredApplicationsController < ApplicationController
   
   def index
-    @user = current_user
-    @registered_applications = @user.registered_applications.paginate(page: params[:page], per_page: 10)
-    # @registered_applications = RegisteredApplication.visible_to(current_user).paginate(page: params[:page], per_page: 10)
+    
+    @registered_applications = RegisteredApplication.visible_to(current_user).paginate(page: params[:page], per_page: 10)
     authorize @registered_applications
   end
 
@@ -23,8 +22,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @registered_application = RegisteredApplication.new(registered_application_params)
+    @registered_application = current_user.registered_applications.build(registered_application_params)
     authorize @registered_application
     if @registered_application.save
       redirect_to @registered_application, notice: "Application was registered successfully."
@@ -62,7 +60,7 @@ class RegisteredApplicationsController < ApplicationController
 
 
   def registered_application_params
-    params.require(:registered_application).permit(:name, :url, :description, :user_id)
+    params.require(:registered_application).permit(:name, :url, :description)
   end
 
 
