@@ -6,12 +6,12 @@
       <div class = "media">
         <div class = "media-body">
           <h4 class = "media-heading">
-            <%= link_to app.name, app %>
+            <%= link_to app.name, app %> <small><%= link_to app.url %></small>
           </h4>
-          <p> <%= link_to app.url %> </p>
             <small>
-              <%= app.description %>
+              submitted <%= time_ago_in_words(app.created_at) %> by <%= app.user.name %>
             </small>
+            <%= markdown_to_html app.description%>
         </div>
       </div>
     <% end %>

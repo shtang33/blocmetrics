@@ -10,15 +10,15 @@ class RegisteredApplicationPolicy < ApplicationPolicy
   end
 
   def update?
-    create?
-  end
-
-  def destroy?
     user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 
+  def destroy?
+    update?
+  end
+
   def show?
-    user.present?
+    create?
     # user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 

@@ -20,6 +20,16 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save!
 
+admin = User.new(
+  name: 'Shu Haur',
+  email: 'shuhaur.tang@gmail.com',
+  password: 'wctshwnn',
+  role: 'moderator'
+  )
+admin.skip_confirmation!
+admin.save!
+
+
 20.times do
   RegisteredApplication.create!(
     user: users.sample,
