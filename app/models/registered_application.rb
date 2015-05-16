@@ -14,5 +14,11 @@
 class RegisteredApplication < ActiveRecord::Base
   belongs_to :user
 
+  default_scope {order('created_at DESC')}
   scope :visible_to, -> (user){user.admin? ? all : where(user: user) }
+
+  validates :name, length: {minimum: 2}, presence: true
+  validates :description, length: {minimum: 10}, presence: true
+  validates :user, presence: true
+
 end 
