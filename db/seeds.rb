@@ -23,7 +23,7 @@ admin.save!
 admin = User.new(
   name: 'Shu Haur',
   email: 'shuhaur.tang@gmail.com',
-  password: 'wctshwnn',
+  password: 'hihihi',
   role: 'moderator'
   )
 admin.skip_confirmation!
@@ -39,7 +39,17 @@ admin.save!
     )
 end
 
+40.times do
+  Event.create!(    
+    name: Faker::Lorem.characters(10),
+    registered_application: registered_applications.sample
+    )
+end
+
+
 
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} applications created"
+puts "#{Event.count} events created"
+
