@@ -2,6 +2,17 @@
 
 <div class = "row">
   <div class = "col-md-4">
-    
+      <p>Guidelines for new application:</p>
+      <dl>
+        <dt>Make sure application works</dt>
+        <dd>The tool won't work if your app is broken!</dd>
+        <dt>Appropriate application</dt>
+        <dd>Any member registering an app with virus will immediately be removed from the community</dd>
+      </dl>
   </div>
+
+  <div class = "col-md-8">
+    <%= render partial: 'form', locals: {registered_application: @registered_application} %>
+  </div>
+
 </div>
