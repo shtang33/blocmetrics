@@ -1,7 +1,6 @@
 class RegisteredApplicationsController < ApplicationController
   
-  def index
-    
+  def index   
     @registered_applications = RegisteredApplication.visible_to(current_user).paginate(page: params[:page], per_page: 10)
     authorize @registered_applications
   end
@@ -14,6 +13,9 @@ class RegisteredApplicationsController < ApplicationController
   def show
     @registered_application = RegisteredApplication.find(params[:id])
     authorize @registered_application
+    @event = @registered_application.events.group_by(&:name)
+    # @event = @registered_application.events
+    @count = @event.inject(Hash.new(0)) {|h,e| h[e] += 1; h}
   end
 
   def edit

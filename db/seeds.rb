@@ -9,7 +9,7 @@ require 'faker'
   user.skip_confirmation!
   user.save!
 end
-users = User.all
+users = User.all # to be used for sampling later
 
 admin = User.new(
   name: 'Admin User',
@@ -23,7 +23,7 @@ admin.save!
 admin = User.new(
   name: 'Shu Haur',
   email: 'shuhaur.tang@gmail.com',
-  password: 'hihihi',
+  password: 'helloworld2',
   role: 'moderator'
   )
 admin.skip_confirmation!
@@ -38,10 +38,11 @@ admin.save!
     description: Faker::Lorem.paragraph
     )
 end
+registered_applications = RegisteredApplication.all # to be used for sampling later
 
-40.times do
-  Event.create!(    
-    name: Faker::Lorem.characters(10),
+50.times do
+  Event.create!(
+    name: Faker::Lorem.characters(10), 
     registered_application: registered_applications.sample
     )
 end

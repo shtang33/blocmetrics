@@ -4,6 +4,10 @@
 <div class = "row">
   <div class = "col-md-8">
     <p><%= markdown_to_html @registered_application.description%></p>
+    <small>
+      <p>Events count: <%= @event.count %></p>
+      <p><%= @event %></p>
+    </small>
   </div>
 
   <div class = "col-md-4">
