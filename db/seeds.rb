@@ -41,9 +41,15 @@ end
 registered_applications = RegisteredApplication.all # to be used for sampling later
 
 50.times do
+  name = Faker::Lorem.characters(10)
+  registered_app = registered_applications.sample
   Event.create!(
-    name: Faker::Lorem.characters(10), 
-    registered_application: registered_applications.sample
+    name: name, 
+    registered_application: registered_app
+    )
+  Event.create!(
+    name: name, 
+    registered_application: registered_app
     )
 end
 

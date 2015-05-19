@@ -21,5 +21,6 @@ class RegisteredApplication < ActiveRecord::Base
   validates :name, length: {minimum: 2}, presence: true
   validates :description, length: {minimum: 10}, presence: true
   validates :user, presence: true
+  validates_uniqueness_of :url
 
 end 

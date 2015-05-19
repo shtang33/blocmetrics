@@ -4,10 +4,16 @@
 <div class = "row">
   <div class = "col-md-8">
     <p><%= markdown_to_html @registered_application.description%></p>
-    <small>
-      <p>Events count: <%= @event.count %></p>
-      <p><%= @event %></p>
-    </small>
+    <% @event_groupings.each do |event_group| %>
+      <small>
+        <% event_grouped_name = event_group[0]%>
+        <% events = event_group[1] %>
+        <p>Event <%= event_grouped_name %> count: <%= events.count %></p>
+          <% events.each do |e| %>
+            <p><%= e.name %> <%= e.created_at %></p>
+          <% end %>
+      </small>
+    <% end %>
   </div>
 
   <div class = "col-md-4">

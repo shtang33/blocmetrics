@@ -13,9 +13,9 @@ class RegisteredApplicationsController < ApplicationController
   def show
     @registered_application = RegisteredApplication.find(params[:id])
     authorize @registered_application
-    @event = @registered_application.events.group_by(&:name)
+    @event_groupings = @registered_application.events.group_by(&:name)
     # @event = @registered_application.events
-    @count = @event.inject(Hash.new(0)) {|h,e| h[e] += 1; h}
+    # @count = @event.inject(Hash.new(0)) {|h,e| h[e] += 1; h}
   end
 
   def edit
