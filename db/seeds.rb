@@ -33,7 +33,7 @@ admin.save!
 20.times do
   RegisteredApplication.create!(
     user: users.sample,
-    name: Faker::Lorem.sentence, 
+    name: Faker::App.name, 
     url: Faker::Internet.url,
     description: Faker::Lorem.paragraph
     )
