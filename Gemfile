@@ -42,6 +42,8 @@ gem 'faker'
 gem 'pundit'
 gem 'will_paginate', '~> 3.0.5'
 gem 'redcarpet'
+gem 'chartkick'
+gem 'groupdate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
