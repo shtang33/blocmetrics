@@ -1,7 +1,9 @@
 function blocmetrics(name) {
   
   var _bm_event = {
-    name: name
+    event: {
+      name: name  
+    }
   }
 
   var _bm_request = new XMLHttpRequest();
@@ -15,9 +17,11 @@ function blocmetrics(name) {
   _bm_request.send(jQuery.param(_bm_event));
 }
 
-  blocmetrics("page view");
+$('#new_comment').submit(function(ev) {
+    blocmetrics("comment");
+});
 
-  blocmetrics("comment");
+  blocmetrics("page view");
 
 
 
