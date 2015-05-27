@@ -5,7 +5,6 @@
   <div class = "col-md-8">
     <p><%= markdown_to_html @registered_application.description%></p>
     <%= pie_chart @registered_application.events.group(:name).count %>
-
     <% @event_groupings.each do |event_group| %>
       <small>
         <% event_grouped_name = event_group[0]%>
